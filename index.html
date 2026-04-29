@@ -1187,8 +1187,9 @@ footer {
   });
 
   // ── Reviews slider ──
-  var track = document.getElementById('reviewsTrack');
-  if (track) {
+  document.addEventListener('DOMContentLoaded', function() {
+    var track = document.getElementById('reviewsTrack');
+    if (!track) return;
     var cards = track.children;
     var total = cards.length;
     var current = 0;
@@ -1212,15 +1213,17 @@ footer {
     }
     function goTo(index) {
       current = index;
-      track.style.transform = 'translateX(-' + (current * (340 + 19.2)) + 'px)';
+      var cardWidth = cards[0].getBoundingClientRect().width;
+      var gap = parseFloat(getComputedStyle(track).gap) || 19.2;
+      track.style.transform = 'translateX(-' + (current * (cardWidth + gap)) + 'px)';
       updateDots();
     }
     function next() { goTo((current + 1) % total); }
-    autoTimer = setInterval(next, 3000);
+    autoTimer = setInterval(next, 3500);
     track.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
-    track.addEventListener('mouseleave', function() { autoTimer = setInterval(next, 3000); });
+    track.addEventListener('mouseleave', function() { autoTimer = setInterval(next, 3500); });
     updateDots();
-  }
+  });
 
   // ── Blog ──
   var posts = [

@@ -1186,44 +1186,6 @@ footer {
     });
   });
 
-  // ── Reviews slider ──
-  document.addEventListener('DOMContentLoaded', function() {
-    var track = document.getElementById('reviewsTrack');
-    if (!track) return;
-    var cards = track.children;
-    var total = cards.length;
-    var current = 0;
-    var autoTimer;
-    var dotsContainer = document.getElementById('reviewDots');
-    for (var i = 0; i < total; i++) {
-      (function(idx) {
-        var dot = document.createElement('button');
-        dot.style.cssText = 'width:6px;height:6px;border-radius:50%;border:none;cursor:pointer;transition:all 0.3s;padding:0;background:rgba(255,255,255,0.2);';
-        dot.addEventListener('click', function() { goTo(idx); });
-        dotsContainer.appendChild(dot);
-      })(i);
-    }
-    function updateDots() {
-      var dots = dotsContainer.querySelectorAll('button');
-      dots.forEach(function(d, i) {
-        d.style.background = i === current ? 'rgba(201,168,76,0.8)' : 'rgba(255,255,255,0.2)';
-        d.style.width = i === current ? '20px' : '6px';
-        d.style.borderRadius = i === current ? '3px' : '50%';
-      });
-    }
-    function goTo(index) {
-      current = index;
-      var cardWidth = cards[0].getBoundingClientRect().width;
-      var gap = parseFloat(getComputedStyle(track).gap) || 19.2;
-      track.style.transform = 'translateX(-' + (current * (cardWidth + gap)) + 'px)';
-      updateDots();
-    }
-    function next() { goTo((current + 1) % total); }
-    autoTimer = setInterval(next, 3500);
-    track.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
-    track.addEventListener('mouseleave', function() { autoTimer = setInterval(next, 3500); });
-    updateDots();
-  });
 
   // ── Blog ──
   var posts = [
@@ -1556,5 +1518,48 @@ footer {
 
 <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;">psikolog kadıköy bağdat caddesi psikolog istanbul klinik psikolog bireysel terapi online terapi kaygı bozukluğu panik atak anksiyete BDT depresyon terapisi ayrılık acısı ilişki sorunları kaygılı bağlanma kaçıngan bağlanma cognito psikoloji yiğit özyılmaz</div>
 
+
+<script>
+(function() {
+  var track = document.getElementById('reviewsTrack');
+  if (!track) return;
+  var cards = track.children;
+  var total = cards.length;
+  var current = 0;
+  var autoTimer;
+  var dotsContainer = document.getElementById('reviewDots');
+
+  for (var i = 0; i < total; i++) {
+    (function(idx) {
+      var dot = document.createElement('button');
+      dot.style.cssText = 'width:6px;height:6px;border-radius:50%;border:none;cursor:pointer;transition:all 0.3s;padding:0;background:rgba(255,255,255,0.2);';
+      dot.addEventListener('click', function() { goTo(idx); });
+      dotsContainer.appendChild(dot);
+    })(i);
+  }
+
+  function updateDots() {
+    Array.prototype.forEach.call(dotsContainer.querySelectorAll('button'), function(d, i) {
+      d.style.background = i === current ? 'rgba(201,168,76,0.8)' : 'rgba(255,255,255,0.2)';
+      d.style.width = i === current ? '20px' : '6px';
+      d.style.borderRadius = i === current ? '3px' : '50%';
+    });
+  }
+
+  function goTo(index) {
+    current = index;
+    var step = cards[0].offsetWidth + 19;
+    track.style.transform = 'translateX(-' + (current * step) + 'px)';
+    updateDots();
+  }
+
+  function next() { goTo((current + 1) % total); }
+
+  autoTimer = setInterval(next, 3500);
+  track.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
+  track.addEventListener('mouseleave', function() { autoTimer = setInterval(next, 3500); });
+  updateDots();
+})();
+</script>
 </body>
 </html>

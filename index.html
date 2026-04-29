@@ -1009,7 +1009,7 @@ footer {
           <a class="twitter-timeline"
              href="https://twitter.com/yigitozylmz"
              data-theme="dark"
-             data-chrome="noheader nofooter noborders transparent"
+             data-chrome="noheader nofooter noborders"
              data-tweet-limit="6"
              data-lang="tr">Tweets by @yigitozylmz</a>
         </div>
@@ -1155,6 +1155,9 @@ footer {
         page.querySelectorAll('iframe').forEach(function(iframe) {
           if (!iframe.dataset.loaded) { iframe.src = iframe.src; iframe.dataset.loaded = 'true'; }
         });
+        if (id === 'sosyal' && window.twttr && twttr.widgets) {
+          twttr.widgets.load(page);
+        }
       }, 150);
     }
   }

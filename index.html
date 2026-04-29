@@ -480,6 +480,14 @@ section { padding: 6rem 8vw; }
   white-space: nowrap;
 }
 
+#tiktokSlider::-webkit-scrollbar { display: none; }
+
+.tiktok-slide {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 325px;
+}
+
 .yt-date {
   font-size: 0.68rem;
   letter-spacing: 0.1em;
@@ -780,7 +788,6 @@ footer {
     <li><a href="#" onclick="openPage('hakkimda'); return false;">Kimdir?</a></li>
     <li><a href="#" onclick="openPage('blog'); return false;">Okumak İçin</a></li>
     <li><a href="#" onclick="openPage('podcast'); return false;">Ben İnsan Podcast</a></li>
-    <li><a href="#" onclick="openPage('sosyal'); return false;">Sosyal Medya</a></li>
     <li><a href="#iletisim">İletişim</a></li>
   </ul>
   <div class="nav-hamburger" onclick="toggleMenu()" aria-label="Menü">
@@ -965,59 +972,6 @@ footer {
   </style>
 </div>
 
-<div id="sosyal-page" style="display:none; position:fixed; inset:0; background:#111111; z-index:200; overflow-y:auto;">
-  <div style="position:sticky; top:0; background:rgba(14,14,14,0.97); backdrop-filter:blur(14px); height:72px; display:flex; align-items:center; justify-content:space-between; padding:0 5vw; border-bottom:1px solid rgba(255,255,255,0.06); z-index:10;">
-    <span style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:300; color:rgba(255,255,255,0.85);">Sosyal Medya</span>
-    <button onclick="closePage('sosyal')" style="background:none; border:none; cursor:pointer; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.5); font-family:'DM Sans',sans-serif; display:flex; align-items:center; gap:0.5rem;">← Geri</button>
-  </div>
-
-  <div style="padding:4rem 8vw 6rem; max-width:1100px; margin:0 auto;">
-    <p style="font-size:0.62rem; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-bottom:0.9rem;">Sosyal Medya</p>
-    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,3vw,2.7rem); font-weight:300; color:var(--white); line-height:1.2; margin-bottom:3.5rem;">Takip edin, <em style="font-style:italic; color:rgba(255,255,255,0.3);">bağlı kalın.</em></h2>
-
-    <div class="sosyal-grid">
-
-      <!-- TikTok -->
-      <div>
-        <div style="display:flex; align-items:center; gap:0.7rem; margin-bottom:1.4rem;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="rgba(255,255,255,0.5)" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
-          <span style="font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.4);">TikTok</span>
-        </div>
-        <a href="https://www.tiktok.com/@pskyigitozyilmaz" target="_blank" rel="noopener"
-           style="display:block; border:1px solid rgba(255,255,255,0.08); padding:2.2rem 2rem; text-decoration:none; transition:border-color 0.25s;"
-           onmouseover="this.style.borderColor='rgba(201,168,76,0.4)'"
-           onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-          <div style="display:flex; align-items:center; gap:0.9rem; margin-bottom:1.2rem;">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
-            <div>
-              <div style="font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:300; color:var(--white);">@pskyigitozyilmaz</div>
-              <div style="font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-top:0.2rem;">TikTok</div>
-            </div>
-          </div>
-          <p style="font-size:0.85rem; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.45); margin-bottom:1.6rem;">Psikoloji, terapi süreci ve zihin sağlığı üzerine kısa videolar.</p>
-          <span style="font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold);">TikTok'ta İzle →</span>
-        </a>
-      </div>
-
-      <!-- X (Twitter) -->
-      <div>
-        <div style="display:flex; align-items:center; gap:0.7rem; margin-bottom:1.4rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="rgba(255,255,255,0.5)" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.213 5.567L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
-          <span style="font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.4);">X (Twitter)</span>
-        </div>
-        <div style="border:1px solid rgba(255,255,255,0.08); overflow:hidden; min-height:420px;">
-          <a class="twitter-timeline"
-             href="https://twitter.com/yigitozylmz"
-             data-theme="dark"
-             data-chrome="noheader nofooter noborders"
-             data-tweet-limit="6"
-             data-lang="tr">Tweets by @yigitozylmz</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 <!-- BLOG -->
 <div id="blog-page" style="display:none; position:fixed; inset:0; background:#FAFAF8; z-index:200; overflow-y:auto;">
@@ -1469,12 +1423,12 @@ footer {
 </section>
 
 <!-- TAKİP ET -->
-<section id="takip-et" aria-label="Sosyal Medya Takip" style="background:var(--antracite); padding:4.5rem 8vw; border-top:1px solid rgba(255,255,255,0.05);">
-  <div style="max-width:860px; margin:0 auto;">
+<section id="takip-et" aria-label="Sosyal Medya" style="background:var(--antracite); padding:4.5rem 0 5rem; border-top:1px solid rgba(255,255,255,0.05);">
+  <div style="padding:0 8vw; margin-bottom:2.5rem;">
     <p style="font-size:0.62rem; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-bottom:0.9rem;">Sosyal Medya</p>
-    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.7rem,2.8vw,2.4rem); font-weight:300; color:var(--white); line-height:1.2; margin-bottom:2.5rem;">Takip edin, <em style="font-style:italic; color:rgba(255,255,255,0.3);">bağlı kalın.</em></h2>
-    <div class="sosyal-follow-grid">
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.7rem,2.8vw,2.4rem); font-weight:300; color:var(--white); line-height:1.2; margin-bottom:2rem;">Takip edin, <em style="font-style:italic; color:rgba(255,255,255,0.3);">bağlı kalın.</em></h2>
 
+    <div class="sosyal-follow-grid" style="max-width:860px; margin-bottom:3rem;">
       <a href="https://instagram.com/ygtozylmz" target="_blank" rel="noopener" class="sosyal-card">
         <div class="sosyal-card-inner">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1489,7 +1443,6 @@ footer {
         </div>
         <span class="sosyal-cta">Takip Et →</span>
       </a>
-
       <a href="https://x.com/yigitozylmz" target="_blank" rel="noopener" class="sosyal-card">
         <div class="sosyal-card-inner">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.75)" aria-hidden="true">
@@ -1502,9 +1455,20 @@ footer {
         </div>
         <span class="sosyal-cta">Takip Et →</span>
       </a>
+    </div>
 
+    <div style="display:flex; align-items:center; gap:0.7rem; margin-bottom:1.4rem;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+      <span style="font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.28);">TikTok Videoları</span>
+      <a href="https://www.tiktok.com/@pskyigitozyilmaz" target="_blank" rel="noopener" style="margin-left:auto; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); text-decoration:none;">Tümünü Gör →</a>
     </div>
   </div>
+
+  <!-- TikTok kaydırmalı slider -->
+  <div id="tiktokSlider" style="display:flex; gap:1rem; padding:0 8vw 0.5rem; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:1rem;">
+    <!-- Videolar eklenecek -->
+  </div>
+
 </section>
 
 <!-- RANDEVU -->
@@ -1575,7 +1539,7 @@ footer {
 <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;">psikolog kadıköy bağdat caddesi psikolog istanbul klinik psikolog bireysel terapi online terapi kaygı bozukluğu panik atak anksiyete BDT depresyon terapisi ayrılık acısı ilişki sorunları kaygılı bağlanma kaçıngan bağlanma cognito psikoloji yiğit özyılmaz</div>
 
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
 
 <script>
 (function() {

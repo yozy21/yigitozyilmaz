@@ -10,6 +10,7 @@
   gtag('config', 'G-W3Y24PJ458');
 </script>
 <meta charset="UTF-8">
+<meta name="theme-color" content="#1a1a1a">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yiğit Özyılmaz | Uzman Klinik Psikolog — Kadıköy, İstanbul</title>
 <meta name="description" content="Uzman Klinik Psikolog Yiğit Özyılmaz ile bireysel terapi ve psikolojik danışmanlık. Kadıköy, İstanbul. Yüz yüze ve online seans imkânı. İnsan Podcast sunucusu.">
@@ -111,7 +112,15 @@
     },
     "hasMap": "https://www.google.com/maps/search/Klinik+Psikolog+Yi%C4%9Fit+%C3%96zy%C4%B1lmaz",
     "sameAs": ["https://www.doktortakvimi.com/yigit-ozyilmaz/psikoloji/istanbul"],
-    "employee": {"@id": "https://www.yigitozyilmaz.com/#person"}
+    "employee": {"@id": "https://www.yigitozyilmaz.com/#person"},
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "9",
+      "reviewCount": "9"
+    }
   },
   {
     "@context": "https://schema.org",
@@ -125,8 +134,67 @@
 ]
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kaygı bozukluğu nedir, belirtileri nelerdir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kaygı bozukluğu, gündelik işlevselliği önemli ölçüde etkileyen, süregelen ve orantısız bir kaygı halidir. Belirtileri arasında sürekli endişe düşünceleri, kas gerginliği, uyku bozuklukları, konsantrasyon güçlüğü ve kaçınma davranışları sayılabilir. Bilişsel Davranışçı Terapi (BDT) ile etkili biçimde tedavi edilebilir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Panik atak ile kaygı arasındaki fark nedir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kaygı, geleceğe yönelik, yavaş yükselen kronik bir endişe halidir. Panik atak ise ani başlar, dakikalar içinde zirveye ulaşır; çarpıntı, nefes darlığı, göğüs baskısı ve kontrolü kaybetme hissiyle kendini gösterir. İkisi birlikte de görülebilir ve her ikisi de BDT ile tedavi edilebilir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bilişsel Davranışçı Terapi (BDT) ne kadar sürer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BDT, psikoterapiler arasında görece kısa ve hedef odaklı bir yaklaşımdır. Sorunun türüne ve şiddetine göre 8 ile 20 seans arasında değişir. Kaygı bozukluğu, depresyon, panik bozukluğu ve OKB gibi durumlarda en kapsamlı araştırma geçmişine sahip terapi yöntemidir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Online terapi yüz yüze terapi kadar etkili mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet. Araştırmalar, online terapinin kaygı bozuklukları, depresyon ve travma tedavisinde yüz yüze terapi kadar etkili olduğunu göstermektedir. Terapötik ittifak, yani terapist ile danışan arasındaki güven ilişkisi, online ortamda da güçlü biçimde kurulabilmektedir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Psikologa gitmek için ne zaman doğru zaman?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Duygularınız günlük hayatınızı düzenli olarak etkiliyorsa, aynı düşünce veya davranış örüntüleri tekrar ediyorsa, uzun süren bir ağırlık veya çökkünlük hissediyorsanız profesyonel destek almak anlamlıdır. Terapi yalnızca kriz anlarında değil, kendinizi daha iyi tanımak ve büyümek için de kullanılabilir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Depresyon ile üzüntü arasındaki fark nedir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Üzüntü belirli bir nedenle bağlantılıdır ve zamanla hafifler. Depresyon ise çoğu zaman net bir dışsal nedeni olmayan, en az iki hafta süren, anhedoni (zevk alamama), enerji kaybı, uyku bozukluğu ve değersizlik hissi gibi belirtilerle kendini gösteren tıbbi bir durumdur. Psikoterapi ve gerektiğinde ilaç tedavisiyle etkili biçimde tedavi edilebilir."
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -1458,27 +1526,95 @@ footer {
           + '<span class="blog-card-read">Devamını Oku →</span>'
           + '</div>';
         card.addEventListener('click', function() {
-          var list2 = document.getElementById('blog-list-view');
-          var detail = document.getElementById('blog-detail-view');
-          var dc = document.getElementById('blog-detail-content');
-          dc.innerHTML = '<img src="' + p.img + '" alt="' + p.imgAlt + '" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;margin-bottom:2.2rem;">'
-            + '<p style="font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:1rem;">' + p.cat + '</p>'
-            + '<h1 style="font-family:Cormorant Garamond,serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.1;margin-bottom:0.8rem;color:#1a1a1a;">' + p.title + '</h1>'
-            + '<div style="width:36px;height:1px;background:#ddd;margin:1.5rem 0 2rem;"></div>'
-            + '<div class="blog-body">' + p.body + '</div>'
-            + disclaimer;
-          list2.style.display = 'none';
-          detail.style.display = 'block';
-          document.getElementById('blog-page').scrollTop = 0;
+          openBlogPost(p, true);
         });
         grid.appendChild(card);
       });
     }
     renderCards(posts);
 
-    // BlogPosting schema injection for SEO
+    // Slug generation
+    function slugify(str) {
+      var map = {'ğ':'g','ü':'u','ş':'s','ı':'i','ö':'o','ç':'c'};
+      return str.toLowerCase()
+        .replace(/[ğüşıöç]/g, function(c) { return map[c] || c; })
+        .replace(/[^a-z0-9\s]/g, '').trim()
+        .replace(/\s+/g, '-').slice(0, 70);
+    }
+    posts.forEach(function(p) { p.slug = slugify(p.title); });
+
+    // Open a blog post, optionally push URL state
+    window.openBlogPost = function(p, pushState) {
+      var list2 = document.getElementById('blog-list-view');
+      var detail = document.getElementById('blog-detail-view');
+      var dc = document.getElementById('blog-detail-content');
+      dc.innerHTML = '<img src="' + p.img + '" alt="' + p.imgAlt + '" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;margin-bottom:2.2rem;">'
+        + '<p style="font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:1rem;">' + p.cat + '</p>'
+        + '<h1 style="font-family:Cormorant Garamond,serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.1;margin-bottom:0.8rem;color:#1a1a1a;">' + p.title + '</h1>'
+        + '<div style="width:36px;height:1px;background:#ddd;margin:1.5rem 0 2rem;"></div>'
+        + '<div class="blog-body">' + p.body + '</div>'
+        + disclaimer;
+      list2.style.display = 'none';
+      detail.style.display = 'block';
+      document.getElementById('blog-page').scrollTop = 0;
+      if (pushState) {
+        history.pushState({blogSlug: p.slug}, p.title, '/blog/' + p.slug);
+        document.title = p.title + ' — Yiğit Özyılmaz | Klinik Psikolog';
+      }
+    };
+
+    // Back to list also resets URL
+    var toListBtn = document.getElementById('blog-to-list-btn');
+    if (toListBtn) {
+      toListBtn._bound = true;
+      toListBtn.addEventListener('click', function() {
+        document.getElementById('blog-detail-view').style.display = 'none';
+        document.getElementById('blog-list-view').style.display = 'block';
+        document.getElementById('blog-page').scrollTop = 0;
+        history.pushState({}, 'Blog', '/');
+        document.title = 'Yiğit Özyılmaz | Uzman Klinik Psikolog — Kadıköy, İstanbul';
+      });
+    }
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', function(e) {
+      if (e.state && e.state.blogSlug) {
+        var post = posts.find(function(p) { return p.slug === e.state.blogSlug; });
+        if (post) {
+          openPage('blog');
+          openBlogPost(post, false);
+        }
+      } else {
+        document.getElementById('blog-detail-view').style.display = 'none';
+        document.getElementById('blog-list-view').style.display = 'block';
+      }
+    });
+
+    // On load: if URL is /blog/slug, open that post
     (function() {
-      var blogSchemas = posts.map(function(p, i) {
+      // Restore URL from 404.html sessionStorage redirect
+      var redirect = sessionStorage.getItem('spa_redirect');
+      if (redirect) {
+        sessionStorage.removeItem('spa_redirect');
+        history.replaceState(null, null, redirect);
+      }
+      var path = window.location.pathname;
+      var match = path.match(/^\/blog\/(.+)/);
+      if (match) {
+        var slug = match[1];
+        var post = posts.find(function(p) { return p.slug === slug; });
+        if (post) {
+          openPage('blog');
+          openBlogPost(post, false);
+          history.replaceState({blogSlug: slug}, post.title, path);
+          document.title = post.title + ' — Yiğit Özyılmaz | Klinik Psikolog';
+        }
+      }
+    })();
+
+    // BlogPosting schema injection with real URLs
+    (function() {
+      var blogSchemas = posts.map(function(p) {
         return {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
@@ -1487,10 +1623,10 @@ footer {
           "image": p.img,
           "author": {"@id": "https://www.yigitozyilmaz.com/#person"},
           "publisher": {"@id": "https://www.yigitozyilmaz.com/#person"},
-          "url": "https://www.yigitozyilmaz.com/#blog-" + (i+1),
+          "url": "https://www.yigitozyilmaz.com/blog/" + p.slug,
           "inLanguage": "tr-TR",
           "articleSection": p.cat,
-          "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.yigitozyilmaz.com/"}
+          "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.yigitozyilmaz.com/blog/" + p.slug}
         };
       });
       var s = document.createElement('script');
@@ -1508,14 +1644,6 @@ footer {
     };
   }
 
-  var toListBtn = document.getElementById('blog-to-list-btn');
-  if (toListBtn) {
-    toListBtn.addEventListener('click', function() {
-      document.getElementById('blog-detail-view').style.display = 'none';
-      document.getElementById('blog-list-view').style.display = 'block';
-      document.getElementById('blog-page').scrollTop = 0;
-    });
-  }
   var backBtn = document.getElementById('blog-back-btn');
   if (backBtn) {
     backBtn.addEventListener('click', function() {
@@ -1523,8 +1651,12 @@ footer {
       if (detail && detail.style.display !== 'none') {
         detail.style.display = 'none';
         document.getElementById('blog-list-view').style.display = 'block';
+        history.pushState({}, 'Blog', '/');
+        document.title = 'Yiğit Özyılmaz | Uzman Klinik Psikolog — Kadıköy, İstanbul';
       } else {
         closePage('blog');
+        history.pushState({}, '', '/');
+        document.title = 'Yiğit Özyılmaz | Uzman Klinik Psikolog — Kadıköy, İstanbul';
       }
     });
   }

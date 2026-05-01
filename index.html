@@ -1832,11 +1832,16 @@ footer {
 (function() {
   var track = document.getElementById('reviewsTrack');
   if (!track) return;
-  var cards = track.children;
-  var total = cards.length;
+  var total = track.children.length;
   var current = 0;
   var autoTimer;
+  var isJumping = false;
   var dotsContainer = document.getElementById('reviewDots');
+
+  // Clone all cards for seamless infinite loop
+  Array.prototype.slice.call(track.children).forEach(function(card) {
+    track.appendChild(card.cloneNode(true));
+  });
 
   for (var i = 0; i < total; i++) {
     (function(idx) {
@@ -1849,20 +1854,43 @@ footer {
 
   function updateDots() {
     Array.prototype.forEach.call(dotsContainer.querySelectorAll('button'), function(d, i) {
-      d.style.background = i === current ? 'rgba(201,168,76,0.8)' : 'rgba(255,255,255,0.2)';
-      d.style.width = i === current ? '20px' : '6px';
-      d.style.borderRadius = i === current ? '3px' : '50%';
+      var active = ((current % total) + total) % total;
+      d.style.background = i === active ? 'rgba(201,168,76,0.8)' : 'rgba(255,255,255,0.2)';
+      d.style.width = i === active ? '20px' : '6px';
+      d.style.borderRadius = i === active ? '3px' : '50%';
     });
+  }
+
+  function getStep() {
+    var firstCard = track.children[0];
+    return firstCard ? firstCard.offsetWidth + 19 : 359;
   }
 
   function goTo(index) {
     current = index;
-    var step = cards[0].offsetWidth + 19;
-    track.style.transform = 'translateX(-' + (current * step) + 'px)';
+    track.style.transform = 'translateX(-' + (current * getStep()) + 'px)';
     updateDots();
   }
 
-  function next() { goTo((current + 1) % total); }
+  function next() {
+    if (isJumping) return;
+    current++;
+    track.style.transform = 'translateX(-' + (current * getStep()) + 'px)';
+    updateDots();
+    // When we reach the clones, silently jump back to originals
+    if (current >= total) {
+      isJumping = true;
+      setTimeout(function() {
+        track.style.transition = 'none';
+        current = current % total;
+        track.style.transform = 'translateX(-' + (current * getStep()) + 'px)';
+        setTimeout(function() {
+          track.style.transition = 'transform 0.7s cubic-bezier(0.4,0,0.2,1)';
+          isJumping = false;
+        }, 50);
+      }, 720);
+    }
+  }
 
   autoTimer = setInterval(next, 3500);
   track.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
